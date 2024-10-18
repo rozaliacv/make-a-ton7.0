@@ -43,9 +43,9 @@ const registered_users = sequelize.define('registered_users', {
 const createRegisteredusersTable = async () => {
     try {
         await registered_users.sync({ alter: true });
-        console.log("registered_user table created or updated successfully");
+        console.log("registered_users table created or updated successfully");
     } catch (error) {
-        console.error("Failed to create registered_user table: ", error.message);
+        console.error("Failed to create registered_users table: ", error.message);
         throw new Error(error.message);
     }
 };

@@ -1,6 +1,9 @@
 import createRegisteredusersTable from "./registered_users/init.js";
+import createDonorsTable from "./donors/init.js";
+
 const initDatabase = async()=> {    
     await createRegisteredusersTable();
+    await createDonorsTable();
 }
 
 
