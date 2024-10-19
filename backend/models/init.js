@@ -5,6 +5,7 @@ import createDonordetailsTable from "./donor_details/init.js";
 import createPostsTable from "./posts/init.js";
 import createRequirementsTable from "./requirements/init.js";
 import createCategoriesTable from "./categories/init.js";
+import createAllocationsTable from "./allocations/init.js";
 
 const initDatabase = async()=> {    
     await createRegisteredusersTable();
@@ -14,6 +15,7 @@ const initDatabase = async()=> {
     await createRequirementsTable();
     await createDonordetailsTable();
     await createDonationsTable();
+    await createAllocationsTable();
 }
 
 

@@ -2,7 +2,7 @@ import { DataTypes } from 'sequelize';
 import sequelize from '../../config/database.config.js'; 
 
 
-const requirements = sequelize.define('requirements', {
+export const requirements = sequelize.define('requirements', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
