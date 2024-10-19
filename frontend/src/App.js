@@ -1,43 +1,51 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import WeatherPage from './pages/WeatherPage';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
+import LoginSignupPage from './pages/LoginSignupPage';
 import GovOfficialPage from './pages/GovOfficialPage';
-import UserSignUpPage from './pages/UserSignUpPage';
-import PopupNotification from './components/PopupNotification';
 import Footer from './components/Footer';
+import DonationForm from './pages/DonationForm';
+import PostPage from './pages/PostPage';
+import AdminPage from './pages/AdminPage';
+
+
 import './App.css';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* Popup Notification */}
-        <PopupNotification />
+        {/* Navigation tabs at the top */}
+        <nav className="navbar">
+          <NavLink exact to="/" className="nav-link" activeClassName="active-tab">
+            Home
+          </NavLink>
+          <NavLink to="/weather" className="nav-link" activeClassName="active-tab">
+            Weather
+          </NavLink>
+          <NavLink to="/login-signup" className="nav-link" activeClassName="active-tab">
+            Login/Signup
+          </NavLink>
+          <NavLink to="/registered-users" className="nav-link" activeClassName="active-tab">
+            Registered Users
+          </NavLink>
+          <NavLink to="/post" className="nav-link" activeClassName="active-tab">
+            Login
+          </NavLink>
+        </nav>
 
-        {/* Navigation Tabs */}
-        <header>
-          <nav>
-            <Link to="/" className="nav-link">Home</Link>
-            <Link to="/weather" className="nav-link">Weather</Link>
-            <Link to="/login" className="nav-link">Login</Link>
-          </nav>
-        </header>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          
+          <Route path="/login-signup" element={<LoginSignupPage />} />
+          <Route path="/registered-users" element={<GovOfficialPage />} /> {/* Updated path */}
+          <Route path="/donate" element={<DonationForm />} />
+          <Route path="/post" element={<PostPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+        </Routes>
 
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/weather" element={<WeatherPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/gov-official" element={<GovOfficialPage />} />
-            <Route path="/user-signup" element={<UserSignUpPage />} />
-          </Routes>
-        </main>
-
-        {/* Footer */}
+        {/* Footer remains the same at the bottom */}
         <Footer />
       </div>
     </Router>
@@ -45,4 +53,3 @@ function App() {
 }
 
 export default App;
-

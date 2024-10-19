@@ -1,0 +1,77 @@
+.admin-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h2, h3 {
+    color: #333;
+  }
+  
+  .admin-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  
+  .user-details {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    background-color: teal;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px;
+  }
+  
+  .user-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+  }
+  
+  .donations-section {
+    flex: 2;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .donations-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .donations-table th, .donations-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .donations-table th {
+    background-color: teal;
+    color: white;
+  }
+  
+  .donations-table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+  
