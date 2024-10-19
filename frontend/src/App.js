@@ -7,6 +7,8 @@ import GovOfficialPage from './pages/GovOfficialPage';
 import Footer from './components/Footer';
 import DonationForm from './pages/DonationForm';
 import PostPage from './pages/PostPage';
+import AdminPage from './pages/AdminPage';
+
 
 import './App.css';
 
@@ -40,6 +42,7 @@ function App() {
           <Route path="/registered-users" element={<GovOfficialPage />} /> {/* Updated path */}
           <Route path="/donate" element={<DonationForm />} />
           <Route path="/post" element={<PostPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
 
         {/* Footer remains the same at the bottom */}

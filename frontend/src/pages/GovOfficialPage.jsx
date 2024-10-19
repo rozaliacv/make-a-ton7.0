@@ -11,10 +11,10 @@ const GovOfficialPage = () => {
   const toggleSignup = () => {
     setIsSignup(!isSignup);
   };
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted"); // Add this line to see if it triggers
-    navigate('/post');
+    navigate('/admin'); // Redirect to admin page
   };
   
 
