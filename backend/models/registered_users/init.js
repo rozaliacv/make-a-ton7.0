@@ -35,7 +35,7 @@ const registered_users = sequelize.define('registered_users', {
         allowNull:false
     }
 }, {
-    tableName: 'register_users',
+    tableName: 'registered_users',
     timestamps: false  
 });
 
