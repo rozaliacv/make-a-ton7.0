@@ -1,4 +1,5 @@
 import {donations} from "../../models/donations/init.js"
+import allocations from '../../models/allocations/init.js';  
 
 
 export const getAllDonations = async (req, res) => {
@@ -29,11 +30,25 @@ export const getDonation = async (req, res) => {
 };
 
 export const addDonation = async (req, res) => {
+    const transaction = await donations.sequelize.transaction(); 
     try {
-        const donation = await donations.create(req.body); 
-        res.status(201).json(donation);
+        const donation = await donations.create(req.body, { transaction });
+        
+        
+        const allocationDetails = {
+            donation_id: donation.id, 
+            allocation_quantity: donation.quantity, 
+        };
+
+        
+        await allocations.create(allocationDetails, { transaction });
+
+        await transaction.commit();
+
+        res.status(201).json(donation); 
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        await transaction.rollback();
+        res.status(500).json({ message: 'Error creating donation and allocation', error: error.message });
     }
 };
 

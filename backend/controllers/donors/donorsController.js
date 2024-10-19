@@ -13,11 +13,19 @@ export const getAllDonors = async (req, res) => {
 
 export const getDonor = async (req, res) => {
     try {
-        const { email,password} = req.params;
-        const donor = email
-            ? await donors.findOne({where:{email}}) 
-            : await donors.findOne({ where: { password } }); 
-        
+        const { email, password } = req.params;
+
+        if (!email || !password) {
+            return res.status(400).json({ error: "Both email and password are required" });
+        }
+
+        const donor = await donors.findOne({
+            where: {
+                email: email,
+                password: password
+            }
+        });
+
         if (!donor) {
             return res.status(404).json({ error: "Donor not found" });
         }

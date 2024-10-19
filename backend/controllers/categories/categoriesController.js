@@ -28,24 +28,3 @@ export const getCategory = async (req, res) => {
     }
 };
 
-export const addCategory = async (req, res) => {
-    try {
-        const donation = await categories.create(req.body); 
-        res.status(201).json(donation);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
-};
-
-export const deleteCategory = async (req, res) => {
-    try {
-        const deleted = await categories.destroy({ where: { id: req.params.id } }); 
-        if (!deleted) {
-            return res.status(404).json({ error: "Category not found" });
-        }
-
-        res.status(204).end(); t
-    } catch (error) {
-        res.status(500).json({ error: "Error deleting requirement " });
-    }
-};

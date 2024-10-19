@@ -13,11 +13,19 @@ export const getAllUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
     try {
-        const { email,password} = req.params;
-        const user = email
-            ? await registered_users.findOne({where:{email}}) 
-            : await registered_users.findOne({ where: { password } }); 
-        
+        const { email, password } = req.params;
+
+        if (!email || !password) {
+            return res.status(400).json({ error: "Both email and password are required" });
+        }
+
+        const user = await registered_users.findOne({
+            where: {
+                email: email,
+                password: password
+            }
+        });
+
         if (!user) {
             return res.status(404).json({ error: "User not found" });
         }
