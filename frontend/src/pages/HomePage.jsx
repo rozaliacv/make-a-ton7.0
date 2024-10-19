@@ -8,7 +8,7 @@ const HomePage = () => {
   const navigate = useNavigate(); // Initialize useNavigate
 
   const handleDonateClick = () => {
-    navigate('/login'); // Redirect to the login page
+    navigate('/login-signup'); // Redirect to the login page
   };
 
   return (
@@ -24,4 +24,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-

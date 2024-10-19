@@ -5,6 +5,9 @@ import HomePage from './pages/HomePage';
 import LoginSignupPage from './pages/LoginSignupPage';
 import GovOfficialPage from './pages/GovOfficialPage';
 import Footer from './components/Footer';
+import DonationForm from './pages/DonationForm';
+import PostPage from './pages/PostPage';
+
 import './App.css';
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
           <NavLink to="/registered-users" className="nav-link" activeClassName="active-tab">
             Registered Users
           </NavLink>
+          <NavLink to="/post" className="nav-link" activeClassName="active-tab">
+            Login
+          </NavLink>
         </nav>
 
         <Routes>
@@ -32,6 +38,8 @@ function App() {
           
           <Route path="/login-signup" element={<LoginSignupPage />} />
           <Route path="/registered-users" element={<GovOfficialPage />} /> {/* Updated path */}
+          <Route path="/donate" element={<DonationForm />} />
+          <Route path="/post" element={<PostPage />} />
         </Routes>
 
         {/* Footer remains the same at the bottom */}

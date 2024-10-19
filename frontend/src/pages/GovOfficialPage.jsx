@@ -1,19 +1,28 @@
 // src/pages/GovOfficialPage.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './GovOfficialPage.css';
 
 const GovOfficialPage = () => {
   const [isSignup, setIsSignup] = useState(false);
+  const navigate = useNavigate();
+
 
   const toggleSignup = () => {
     setIsSignup(!isSignup);
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted"); // Add this line to see if it triggers
+    navigate('/post');
+  };
+  
 
   return (
     <div className="Registered Users-container">
       <div className="login-signup-box">
         <h2>{isSignup ? 'Sign Up' : 'Login'}</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* Login fields: ID, Password, and Email */}
           <div className="input-group">
             <input type="text" placeholder="Id" required />
