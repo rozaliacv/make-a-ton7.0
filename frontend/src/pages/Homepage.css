@@ -1,0 +1,17 @@
+/* src/pages/HomePage.css */
+.donate-btn {
+    background-color: #f55a42; /* Match your theme color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px; /* Space from other content */
+    transition: background-color 0.3s;
+  }
+  
+  .donate-btn:hover {
+    background-color: #d34a32; /* Darker shade on hover */
+  }
+  

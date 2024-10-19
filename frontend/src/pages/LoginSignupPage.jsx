@@ -1,8 +1,8 @@
-// src/pages/GovOfficialPage.jsx
+// src/pages/LoginSignupPage.jsx
 import React, { useState } from 'react';
-import './GovOfficialPage.css';
+import './LoginSignupPage.css';
 
-const GovOfficialPage = () => {
+const LoginSignupPage = () => {
   const [isSignup, setIsSignup] = useState(false);
 
   const toggleSignup = () => {
@@ -10,7 +10,7 @@ const GovOfficialPage = () => {
   };
 
   return (
-    <div className="Registered Users-container">
+    <div className="login-signup-container">
       <div className="login-signup-box">
         <h2>{isSignup ? 'Sign Up' : 'Login'}</h2>
         <form>
@@ -35,10 +35,10 @@ const GovOfficialPage = () => {
                 <input type="text" placeholder="Mobile No" required />
               </div>
               <div className="input-group">
-                <input type="text" placeholder="gender" required />
+                <input type="text" placeholder="Location" required />
               </div>
               <div className="input-group">
-                <input type="text" placeholder="official position" required />
+                <input type="text" placeholder="Aadhaar Number" required />
               </div>
             </>
           )}
@@ -56,4 +56,4 @@ const GovOfficialPage = () => {
   );
 };
 
-export default GovOfficialPage;
+export default LoginSignupPage;
