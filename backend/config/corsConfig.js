@@ -1,12 +1,15 @@
-const whitelist = ["http://localhost:8000/", "http://127.0.0.1:8000/","http://localhost:5173",
-"http://127.0.0.1:5173" ];
+const whitelist = [
+  /^http:\/\/localhost:\d+$/,
+  /^http:\/\/127\.0\.0\.1:\d+$/,
+  "http://localhost:3000", // Add this line
+];
 
- const corsOptions = {
+const corsOptions = {
   origin: (origin, callback) => {
-    if (whitelist.indexOf(origin) != -1 || !origin) {
+    if (whitelist.some(allowed => allowed instanceof RegExp ? allowed.test(origin) : allowed === origin) || !origin) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by cors"));
+      callback(new Error("Not allowed by CORS"));
     }
   },
   optionsSuccessStatus: 200,

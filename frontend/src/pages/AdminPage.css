@@ -1,77 +1,73 @@
 .admin-container {
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  h2, h3 {
-    color: #333;
-  }
-  
-  .admin-content {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
+    padding: 20px;
   }
   
   .user-details {
-    flex: 1;
+    width: 30%;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
   }
   
-  .avatar {
-    width: 80px;
-    height: 80px;
-    background-color: teal;
+  .user-icon .icon-placeholder {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  
+  .donation-overview {
+    width: 65%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+  }
+  
+  .post-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: green;
     color: white;
-    font-size: 2em;
-    font-weight: bold;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
-  .user-name {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #333;
+  .post-btn:hover {
+    background-color: darkgreen;
   }
   
-  .donations-section {
-    flex: 2;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .donations-table {
-    width: 100%;
-    border-collapse: collapse;
+  .post-form {
     margin-top: 20px;
   }
   
-  .donations-table th, .donations-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
+  .form-field {
+    margin-bottom: 15px;
   }
   
-  .donations-table th {
-    background-color: teal;
+  .form-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-field input, .form-field select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    background-color: blue;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
   
-  .donations-table tbody tr:hover {
-    background-color: #f1f1f1;
+  .submit-btn:hover {
+    background-color: darkblue;
   }
   
