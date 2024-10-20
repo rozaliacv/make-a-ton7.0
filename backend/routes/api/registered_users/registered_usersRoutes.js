@@ -10,7 +10,7 @@ usersRouter
     .get(getAllUsers)
     .post(addUser)
 usersRouter
-    .route('/:email/:password')
+    .route('/login')
     .get(getUser)
 
 

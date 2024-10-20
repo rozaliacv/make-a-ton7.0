@@ -32,3 +32,19 @@ export const getAllAllocations = async (req, res) => {
         });
     }
 };
+export const getAllocations = async (req, res) => {
+    try {
+        const { id,date_posted} = req.params;
+        const post = id
+            ? await posts.findOne({where:{id}}) 
+            : await posts.findOne({ where: { date_posted } }); 
+        
+        if (!post) {
+            return res.status(404).json({ error: "Post not found" });
+        }
+
+        res.json(post);
+    } catch (error) {
+        res.status(500).json({ error: "Error retrieving post" });
+    }
+};
