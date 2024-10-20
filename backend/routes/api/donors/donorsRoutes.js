@@ -10,7 +10,7 @@ donorsRouter
     .get(getAllDonors)
     .post(addDonor)
 donorsRouter
-    .route('/:email/:password')
+    .route('/login')
     .get(getDonor)
 
 

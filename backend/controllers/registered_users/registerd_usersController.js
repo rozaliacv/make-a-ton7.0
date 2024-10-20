@@ -16,18 +16,15 @@ export const getAllUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
     try {
-        const { email, password } = req.params;
+        const { email, password } = req.body; // Adjust to how you're sending the data
 
         if (!email || !password) {
             return res.status(400).json({ error: "Both email and password are required" });
         }
 
-      
+        // Find the user
         const user = await registered_users.findOne({
-            where: {
-                email: email,
-                password: password
-            },
+            where: { email, password },
             attributes: ['id'] 
         });
 
@@ -35,11 +32,9 @@ export const getUser = async (req, res) => {
             return res.status(404).json({ error: "User not found" });
         }
 
-        
+        // Find the user's post
         const userPost = await posts.findOne({
-            where: {
-                posted_by: user.id
-            },
+            where: { posted_by: user.id },
             attributes: ['id'] 
         });
 
@@ -47,11 +42,9 @@ export const getUser = async (req, res) => {
             return res.status(404).json({ error: "Post not found for this user" });
         }
 
-        
+        // Find the post's requirement
         const postRequirement = await requirements.findOne({
-            where: {
-                post_id: userPost.id
-            },
+            where: { post_id: userPost.id },
             attributes: ['id'] 
         });
 
@@ -59,18 +52,16 @@ export const getUser = async (req, res) => {
             return res.status(404).json({ error: "Requirement not found for this post" });
         }
 
-        
+        // Find all allocation details for the requirement
         const allocationDetails = await allocations.findAll({
-            where: {
-                requirement_id: postRequirement.id
-            }
+            where: { requirement_id: postRequirement.id }
         });
 
-        if (!allocationDetails || allocationDetails.rows.length === 0) {
+        if (!allocationDetails || allocationDetails.length === 0) {
             return res.status(404).json({ error: "No allocations found for this requirement" });
         }
 
-        
+        // Respond with allocation details
         res.json(allocationDetails);
 
     } catch (error) {
@@ -78,6 +69,7 @@ export const getUser = async (req, res) => {
         res.status(500).json({ error: "Error retrieving allocation data" });
     }
 };
+
 
 
 export const addUser = async (req, res) => {
