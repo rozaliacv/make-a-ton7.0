@@ -1,47 +1,36 @@
 /* src/components/Navbar.css */
 
 .navbar {
-    background-color: #333; /* Dark background for the navbar */
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-  }
-  
-  .nav-link {
-    text-decoration: none;
-    color: #fff; /* White text for links */
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    background-color: #555; /* Slightly lighter background on hover */
-  }
-  
-  .active {
-    background-color: #4CAF50; /* Highlight active tab */
-    color: #fff;
-  }
-  
-  body {
-    background-color: #f4f4f4; /* Light background for the body */
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  /* src/App.css or add it to Navbar.css */
+  background-color: #333; /* Dark background for the navbar */
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-body {
-    background-color: #f4f4f4; /* Light background color for all pages */
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff; /* White text for links */
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #555; /* Slightly lighter background on hover */
+}
+
+.active {
+  background-color: #4CAF50; /* Highlight active tab */
+  color: #fff;
+}
+
+  
   

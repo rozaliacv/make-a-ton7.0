@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/database.config.js'; 
-const registered_users = sequelize.define('registered_users', {
+export const registered_users = sequelize.define('registered_users', {
     id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
@@ -26,16 +26,12 @@ const registered_users = sequelize.define('registered_users', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    photo: {
-        type: DataTypes.STRING,
-        allowNull: false
-    },
     password:{
         type:DataTypes.STRING,
         allowNull:false
     }
 }, {
-    tableName: 'register_users',
+    tableName: 'registered_users',
     timestamps: false  
 });
 

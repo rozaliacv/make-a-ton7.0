@@ -4,77 +4,60 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f0f0; /* Light background */
-  color: #333; /* Dark text color */
+  background-color: #f4f4f4; /* Same color across all pages */
 }
 
 .App {
-  min-height: 100vh; /* Ensure the app takes the full viewport height */
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100%;
 }
 
-header {
+/* Navigation bar at the top */
+.navbar {
+  background-color: #89d882;
+  padding: 10px;
   display: flex;
   justify-content: center;
-  background-color: #4CAF50; /* Green background for header */
-  padding: 15px 0;
-}
-
-nav {
-  display: flex;
 }
 
 .nav-link {
   color: white;
   text-decoration: none;
   margin: 0 15px;
-  padding: 10px 20px;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  font-size: 18px;
 }
 
 .nav-link:hover {
-  background-color: #45a049; /* Darker green on hover */
+  color: #09581d;
 }
 
-main {
-  flex: 1; /* Allow the main content to grow and fill available space */
+.active-tab {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* Page content area */
+.content {
+  flex-grow: 1;
   padding: 20px;
-  background-color: #ffffff; /* White background for main content */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure it appears on top of other content */
-}
-
-.close-btn {
-  margin-left: 10px;
-  cursor: pointer;
-}
-
+/* Footer */
 footer {
-  text-align: center;
-  background-color: #333; /* Dark footer */
+  background-color: #021802;
   color: white;
-  padding: 15px;
-  position: relative;
+  text-align: center;
+  position: fixed;
+  padding:10px;
   bottom: 0;
   width: 100%;
-  margin-top: auto; /* Push footer to the bottom */
 }
 
+/* Keep your content area flexible */
+.content {
+  flex-grow: 1; /* Allows content area to grow and push footer down */
+  padding: 20px;
+}
 
