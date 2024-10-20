@@ -66,7 +66,7 @@ export const getUser = async (req, res) => {
             }
         });
 
-        if (!allocationDetails || allocationDetails.length === 0) {
+        if (!allocationDetails || allocationDetails.rows.length === 0) {
             return res.status(404).json({ error: "No allocations found for this requirement" });
         }
 

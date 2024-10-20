@@ -28,7 +28,7 @@ export const registered_users = sequelize.define('registered_users', {
     },
     photo: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     password:{
         type:DataTypes.STRING,
