@@ -1,4 +1,3 @@
-// src/pages/LoginSignupPage.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginSignupPage.css';
@@ -28,11 +27,11 @@ const LoginSignupPage = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Form submitted");
+    e.preventDefault(); // Prevent default form submission
+    setErrorMessage(''); // Clear previous error messages
 
     if (isSignup) {
-      // Sign-up logic (same as before)
+      // Sign-up logic
       try {
         const response = await fetch('http://localhost:8000/api/donors/', {
           method: 'POST',
@@ -54,14 +53,14 @@ const LoginSignupPage = () => {
         const data = await response.json();
         console.log('Sign up successful:', data);
 
-        // Redirect to post page after successful sign up
-        navigate('/post');
+        // Redirect to donate page after successful sign-up
+        navigate('/donate');
       } catch (error) {
         console.error('Error:', error);
         setErrorMessage('Sign-up failed. Please try again.');
       }
     } else {
-      // Login logic (using GET request)
+      // Login logic
       try {
         const response = await fetch(`http://localhost:8000/api/donors/${formData.email}/${formData.password}`);
 
@@ -74,8 +73,8 @@ const LoginSignupPage = () => {
 
         // Check if the credentials match
         if (data.email === formData.email && data.password === formData.password) {
-          // Redirect to the post page if credentials are valid
-          navigate('/post');
+          // Redirect to the donate page if credentials are valid
+          navigate('/donate');
         } else {
           setErrorMessage('Invalid email or password. Please try again.');
         }
