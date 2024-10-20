@@ -12,7 +12,7 @@ const GovOfficialPage = () => {
     gender: '',
     email: '',
     position: '',
-    password: '',
+    mobile_no: '', // Added mobile_no for signup
   });
 
   const toggleSignup = () => {
@@ -30,45 +30,62 @@ const GovOfficialPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    const formDataToSend = {
-      ...formData,
-    };
+    if (isSignup) {
+      // Sign up logic
+      const formDataToSend = {
+        ...formData,
+      };
 
-    try {
-      const response = await fetch('http://localhost:8000/api/registered_users/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json', // Set the content type to JSON
-        },
-        body: JSON.stringify(formDataToSend), // Convert form data to JSON
-      });
+      try {
+        const response = await fetch('http://localhost:8000/api/registered_users/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json', // Set the content type to JSON
+          },
+          body: JSON.stringify(formDataToSend), // Convert form data to JSON
+        });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        console.error('Error response:', errorData);
-        throw new Error('Failed to submit data');
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Error response:', errorData);
+          throw new Error('Failed to submit data');
+        }
+
+        const data = await response.json();
+        console.log('Post successful:', data);
+
+        // Redirect to the admin page after successful submission
+        navigate('/admin');
+      } catch (error) {
+        console.error('Error:', error);
       }
+    } else {
+      // Login logic
+      try {
+        const response = await fetch(`http://localhost:8000/api/registered_users/login?email=${formData.email}&password=${formData.password}`);
 
-      const data = await response.json();
-      console.log('Post successful:', data);
+        if (!response.ok) {
+          console.error('Failed to login');
+          return; // Exit if login fails
+        }
 
-      // Redirect to the admin page after successful submission
-      navigate('/admin');
-    } catch (error) {
-      console.error('Error:', error);
+        const data = await response.json();
+        console.log('Login successful:', data);
+
+        // Redirect to the admin page if there is a valid response
+        navigate('/admin');
+      } catch (error) {
+        console.error('Error:', error);
+      }
     }
   };
 
   return (
-    <div className="Registered Users-container">
+    <div className="Registered-Users-container">
       <div className="login-signup-box">
         <h2>{isSignup ? 'Sign Up' : 'Login'}</h2>
         <form onSubmit={handleSubmit}>
-          {/* ID field (only for signup) */}
-          {isSignup}
-
-          
-
+          {/* Password and Email fields */}
           <div className="input-group">
             <input
               type="password"
@@ -123,7 +140,6 @@ const GovOfficialPage = () => {
                   required
                 />
               </div>
-              
             </>
           )}
 
@@ -141,3 +157,4 @@ const GovOfficialPage = () => {
 };
 
 export default GovOfficialPage;
+

@@ -31,7 +31,7 @@ const AdminPage = () => {
     const postData = {
       posted_by: 'John Doe', // Replace with the actual user identifier
       location: formData.location,
-      date_posted_account_detail: new Date().toISOString(), // Current date and time
+      date_posted: new Date().toISOString(), // Current date and time
       comment: formData.comment,
       quantity: formData.quantity,
       category: formData.category,
@@ -119,17 +119,6 @@ const AdminPage = () => {
                   required
                 />
               </div>
-              <div className="form-field">
-                <label>posted by:</label>
-                <input
-                  type="text"
-                  name="posted by"
-                  value={formData.postedby}
-                  onChange={handleChange}
-                  placeholder="posted by"
-                  required
-                />
-              </div>
 
               <div className="form-field">
                 <label>Category:</label>
@@ -144,17 +133,6 @@ const AdminPage = () => {
                   <option value="kids">Kids</option>
                   <option value="clothing">Clothing</option>
                 </select>
-              </div>
-              <div className="form-field">
-                <label>date posted:</label>
-                <input
-                  type="number"
-                  name="date posted"
-                  value={formData.dateposted }
-                  onChange={handleChange}
-                  placeholder="date"
-                  required
-                />
               </div>
 
               <div className="form-field">

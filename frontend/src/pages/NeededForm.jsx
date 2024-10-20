@@ -14,9 +14,35 @@ const NeededForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    try {
+      const response = await fetch('http://localhost:8000/api/posts/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form data');
+      }
+
+      const data = await response.json();
+      console.log('Form submitted successfully:', data);
+      // Optionally, you can reset the form after submission
+      setFormData({
+        location: "",
+        categories: "",
+        quantity: "",
+        emergency: "",
+        contactNumber: "",
+      });
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
